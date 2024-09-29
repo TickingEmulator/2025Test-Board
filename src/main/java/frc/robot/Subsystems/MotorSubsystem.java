@@ -15,7 +15,7 @@ public class MotorSubsystem extends SubsystemBase {
     private final CANSparkMax frontRightMotor = new CANSparkMax(MotorConstants.kFrontRightMotor, MotorType.kBrushless);
     private final CANSparkMax frontLeftMotor = new CANSparkMax(MotorConstants.kFrontLeftMotor, MotorType.kBrushless);
     private final SparkPIDController frontRightController = frontRightMotor.getPIDController();
-    private final DutyCycle absoluteEncoder = new DutyCycle(new DigitalInput(0)); // Directly connected into the RIO
+    private final DutyCycle absoluteEncoder = new DutyCycle(new DigitalInput(MotorConstants.kAbsoluteEncoderPort)); // Directly connected into the RIO
     private final RelativeEncoder relativeEncoder = frontRightMotor.getEncoder();
     private final double homePosition = MotorConstants.kHomePosition;
     public enum MotorState {
